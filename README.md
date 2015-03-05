@@ -1,12 +1,19 @@
 # textsecure-cookbook
 
-TODO: Enter the cookbook description here.
+Builds and installs the
+[TextSecure-Server](https://github.com/WhisperSystems/TextSecure-Server/).
+It is intended for testing purposes and not production environments.
+
+**Note:** This cookbook is not yet functional. It does not start the
+service running yet, and several dependencies are missing.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* Ubuntu 14.04
 
 ## Attributes
+
+TODO.
 
 <table>
   <tr>
@@ -27,14 +34,21 @@ TODO: List your supported platforms.
 
 ### textsecure::default
 
-Include `textsecure` in your node's `run_list`:
+Builds TextSecure server jar and installs dependencies.
 
-```json
-{
-  "run_list": [
-    "recipe[textsecure::default]"
-  ]
-}
+### textsecure::database
+
+Installs and configures PostgreSQL.
+
+## Testing
+
+This cookbook can be tested with Vagrant.
+
+```
+vagrant plugin install vagrant-cachier # Optional
+vagrant plugin install vagrant-berkshelf
+vagrant plugin install vagrant-omnibus
+vagrant up
 ```
 
 ## License and Authors

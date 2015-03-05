@@ -6,8 +6,12 @@ description      'Installs/Configures TextSecure server'
 long_description 'Installs/Configures TextSecure server'
 version          '0.1.0'
 
+supports "ubuntu"
+
+depends "database"
+depends 'git'
 depends 'java'
-depends 'redis'
+depends 'maven'
 depends 'memcached'
 depends 'postgresql'
-depends 'maven'
+depends 'redis'

@@ -79,16 +79,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
+    chef.add_recipe "apt"
+    chef.add_recipe "textsecure"
+    chef.add_recipe "textsecure::database"
     chef.json = {
-      mysql: {
-        server_root_password: 'rootpass',
-        server_debian_password: 'debpass',
-        server_repl_password: 'replpass'
+      postgresql: {
+        password: {
+          postgres: 'change me'
+        }
+      },
+      textsecure: {
+        git_dir: '/home/vagrant/textsecure-server',
       }
     }
-
-    chef.run_list = [
-      'recipe[textsecure::default]'
-    ]
   end
 end
