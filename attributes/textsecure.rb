@@ -22,7 +22,8 @@ default['textsecure']['config']['push']['password'] = nil
 default['textsecure']['config']['s3']['accessKey'] = nil
 default['textsecure']['config']['s3']['accessSecret'] = nil
 default['textsecure']['config']['s3']['attachmentsBucket'] = nil
-default['textsecure']['config']['redis']['url'] = "http://localhost:6397"
+default['textsecure']['config']['cache']['url'] = "http://localhost:6397"
+default['textsecure']['config']['directory']['url'] = "http://localhost:6397"
 default['textsecure']['config']['federation']['name'] = nil
 default['textsecure']['config']['federation']['peers'] = [{
   name: nil,
@@ -40,3 +41,9 @@ default['textsecure']['config']['messageStore']['user'] = node['textsecure']['db
 default['textsecure']['config']['messageStore']['password'] = node['textsecure']['dbpass']
 default['textsecure']['config']['messageStore']['url'] = "#{db_url}/messagedb"
 default['textsecure']['config']['messageStore']['properties']['charSet'] = "UTF-8"
+
+default['textsecure']['config']['database']['driverClass'] = "org.postgresql.Driver"
+default['textsecure']['config']['database']['user'] = node['textsecure']['dbuser']
+default['textsecure']['config']['database']['password'] = node['textsecure']['dbpass']
+default['textsecure']['config']['database']['url'] = "#{db_url}/accountdb"
+default['textsecure']['config']['database']['properties']['charSet'] = "UTF-8"

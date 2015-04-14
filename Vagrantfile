@@ -100,7 +100,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             username: dummy_username,
             password: dummy_password,
           },
-          redis: {
+          cache: {
+            url: 'http://localhost:6380',
+          },
+          directory: {
             url: 'http://localhost:6380',
           },
         },
