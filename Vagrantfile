@@ -79,6 +79,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apt"
     chef.add_recipe "redisio"
     chef.add_recipe "redisio::enable"
+    chef.add_recipe "textsecure::pushserver"
     chef.add_recipe "textsecure"
     chef.add_recipe "textsecure::database"
     chef.json = {
@@ -89,6 +90,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       textsecure: {
         git_dir: '/home/vagrant/textsecure-server',
+      },
+      pushserver: {
+        config: {
+          redis: {
+            url: 'http://localhost:6379',
+          },
+        },
       },
       redisio: {
         servers: [
