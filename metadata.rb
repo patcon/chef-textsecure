@@ -12,6 +12,5 @@ depends "database"
 depends 'git'
 depends 'java'
 depends 'maven'
-depends 'memcached'
 depends 'postgresql'
 depends 'redisio'
