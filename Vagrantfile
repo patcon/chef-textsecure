@@ -79,6 +79,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apt"
     chef.add_recipe "redisio"
     chef.add_recipe "redisio::enable"
+    chef.add_recipe "memcached"
     chef.add_recipe "textsecure::pushserver"
     chef.add_recipe "textsecure"
     chef.add_recipe "textsecure::database"
