@@ -17,12 +17,12 @@ default['textsecure']['config']['nexmo']['apiSecret'] = nil
 default['textsecure']['config']['nexmo']['number'] = nil
 default['textsecure']['config']['push']['host'] = "localhost"
 default['textsecure']['config']['push']['port'] = 9090
-default['textsecure']['config']['push']['username'] = "whisper"
-default['textsecure']['config']['push']['password'] = "whisper"
+default['textsecure']['config']['push']['username'] = nil
+default['textsecure']['config']['push']['password'] = nil
 default['textsecure']['config']['s3']['accessKey'] = nil
 default['textsecure']['config']['s3']['accessSecret'] = nil
 default['textsecure']['config']['s3']['attachmentsBucket'] = nil
-default['textsecure']['config']['redis']['url'] = nil
+default['textsecure']['config']['redis']['url'] = "http://localhost:6397"
 default['textsecure']['config']['federation']['name'] = nil
 default['textsecure']['config']['federation']['peers'] = [{
   name: nil,

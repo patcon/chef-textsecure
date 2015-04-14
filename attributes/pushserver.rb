@@ -9,9 +9,13 @@ default['pushserver']['config']['apn']['pushCertificate'] = nil
 default['pushserver']['config']['apn']['pushKey'] = nil
 default['pushserver']['config']['apn']['voipCertificate'] = nil
 default['pushserver']['config']['apn']['voipKey'] = nil
-default['pushserver']['config']['redis']['url'] = nil
-default['pushserver']['config']['authentication']['servers']['name'] = nil
-default['pushserver']['config']['authentication']['servers']['password'] = nil
+default['pushserver']['config']['redis']['url'] = 'http://localhost:6379'
+
+default['pushserver']['config']['authentication']['servers'] = [{
+  name: nil,
+  password: nil,
+}]
+
 default['pushserver']['config']['server']['applicationConnectors']['type'] = nil
 default['pushserver']['config']['server']['applicationConnectors']['port'] = nil
 default['pushserver']['config']['server']['adminConnectors']['type'] = nil

@@ -75,6 +75,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.cache.scope = :box
   end
 
+  dummy_username = 'whisper'
+  dummy_password = 'whisper'
+
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "apt"
     chef.add_recipe "redisio"
@@ -85,14 +88,41 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.json = {
       postgresql: {
         password: {
-          postgres: 'change me'
+          postgres: dummy_password
         }
       },
       textsecure: {
         git_dir: '/home/vagrant/textsecure-server',
+        config: {
+          twilio: {},
+          s3: {},
+          push: {
+            username: dummy_username,
+            password: dummy_password,
+          },
+          redis: {
+            url: 'http://localhost:6380',
+          },
+        },
       },
       pushserver: {
         config: {
+          apn: {
+            pushCertificate: 'X',
+            pushKey: 'X',
+            voipCertificate: 'X',
+            voipKey: 'X',
+          },
+          gcm: {
+            senderId: 670330094152,
+            apiKey: 'X',
+          },
+          authentication: {
+            servers: [{
+              name: dummy_username,
+              password: dummy_password,
+            }],
+          },
           redis: {
             url: 'http://localhost:6379',
           },
