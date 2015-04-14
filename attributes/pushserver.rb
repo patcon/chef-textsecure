@@ -2,6 +2,9 @@ default['pushserver']['git_repository'] = "https://github.com/WhisperSystems/Pus
 default['pushserver']['git_revision'] = "master"
 default['pushserver']['git_dir'] = "/var/opt/pushserver"
 
+default['pushserver']['disable_apn'] = false
+default['pushserver']['disable_gcm'] = false
+
 # See: https://github.com/janimo/textsecure-docker/blob/master/config/pushconfig.yml.sample
 default['pushserver']['config']['gcm']['senderId'] = nil
 default['pushserver']['config']['gcm']['apiKey'] = nil

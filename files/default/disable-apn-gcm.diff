@@ -1,0 +1,15 @@
+diff --git src/main/java/org/whispersystems/pushserver/PushServer.java src/main/java/org/whispersystems/pushserver/PushServer.java
+index f88a779..35aa8db 100644
+--- src/main/java/org/whispersystems/pushserver/PushServer.java
++++ src/main/java/org/whispersystems/pushserver/PushServer.java
+@@ -55,8 +55,8 @@ public class PushServer extends Application<PushServerConfiguration> {
+     APNSender apnSender = initializeApnSender(redisClient, apnQueue, config.getApnConfiguration());
+     GCMSender gcmSender = initializeGcmSender(gcmQueue, config.getGcmConfiguration());
+ 
+-    environment.lifecycle().manage(apnSender);
+-    environment.lifecycle().manage(gcmSender);
++    //environment.lifecycle().manage(apnSender);
++    //environment.lifecycle().manage(gcmSender);
+ 
+     environment.jersey().register(AuthFactory.binder(new BasicAuthFactory<>(serverAuthenticator, "PushServer", Server.class)));
+     environment.jersey().register(new PushController(apnSender, gcmSender));

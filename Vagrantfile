@@ -106,6 +106,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
       },
       pushserver: {
+        disable_apn: true,
         git_dir: '/home/vagrant/push-server',
         config: {
           apn: {
