@@ -16,7 +16,12 @@ default['pushserver']['config']['authentication']['servers'] = [{
   password: nil,
 }]
 
-default['pushserver']['config']['server']['applicationConnectors']['type'] = nil
-default['pushserver']['config']['server']['applicationConnectors']['port'] = nil
-default['pushserver']['config']['server']['adminConnectors']['type'] = nil
-default['pushserver']['config']['server']['adminConnectors']['port'] = nil
+default['pushserver']['config']['server']['applicationConnectors'] = [{
+  type: 'http',
+  port: 9090,
+}]
+
+default['pushserver']['config']['server']['adminConnectors'] = [{
+  type: 'http',
+  port: 9091,
+}]
