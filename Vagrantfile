@@ -94,8 +94,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       textsecure: {
         git_dir: '/home/vagrant/textsecure-server',
         config: {
-          twilio: {},
-          s3: {},
+          twilio: {
+            accountId: 'X',
+            accountToken: 'X',
+            localDomain: 'X',
+            number: 'X',
+          },
+          s3: {
+            accessKey: 'X',
+            accessSecret: 'X',
+            attachmentsBucket: 'X',
+          },
           push: {
             username: dummy_username,
             password: dummy_password,
