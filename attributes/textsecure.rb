@@ -35,11 +35,6 @@ default['textsecure']['config']['graphite']['port'] = nil
 
 db_url = "jdbc:postgresql://localhost:#{node['postgresql']['config']['port']}"
 
-default['textsecure']['config']['database']['driverClass'] = "org.postgresql.Driver"
-default['textsecure']['config']['database']['user'] = node['textsecure']['dbuser']
-default['textsecure']['config']['database']['password'] = node['textsecure']['dbpass']
-default['textsecure']['config']['database']['url'] = "#{db_url}/accountdb"
-default['textsecure']['config']['database']['properties']['charSet'] = "UTF-8"
 default['textsecure']['config']['messageStore']['driverClass'] = "org.postgresql.Driver"
 default['textsecure']['config']['messageStore']['user'] = node['textsecure']['dbuser']
 default['textsecure']['config']['messageStore']['password'] = node['textsecure']['dbpass']
