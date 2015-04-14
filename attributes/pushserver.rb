@@ -5,8 +5,10 @@ default['pushserver']['git_dir'] = "/var/opt/pushserver"
 # See: https://github.com/janimo/textsecure-docker/blob/master/config/pushconfig.yml.sample
 default['pushserver']['config']['gcm']['senderId'] = nil
 default['pushserver']['config']['gcm']['apiKey'] = nil
-default['pushserver']['config']['apn']['certificate'] = nil
-default['pushserver']['config']['apn']['key'] = nil
+default['pushserver']['config']['apn']['pushCertificate'] = nil
+default['pushserver']['config']['apn']['pushKey'] = nil
+default['pushserver']['config']['apn']['voipCertificate'] = nil
+default['pushserver']['config']['apn']['voipKey'] = nil
 default['pushserver']['config']['redis']['url'] = nil
 default['pushserver']['config']['authentication']['servers']['name'] = nil
 default['pushserver']['config']['authentication']['servers']['password'] = nil
