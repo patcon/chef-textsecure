@@ -28,7 +28,7 @@ postgresql_database_user node['textsecure']['dbuser'] do
   action :create
 end
 
-databases = ["messagedb"]
+databases = ["accountdb", "messagedb"]
 
 databases.each do |dbname|
   database dbname do
