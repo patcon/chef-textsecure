@@ -1,5 +1,8 @@
+default['textsecure']['user'] = 'textsecure'
+default['textsecure']['version'] = '0.54'
+
 default['textsecure']['git_repository'] = "https://github.com/WhisperSystems/TextSecure-Server.git"
-default['textsecure']['git_revision'] = "master"
+default['textsecure']['git_revision'] = nil
 default['textsecure']['git_dir'] = "/var/opt/textsecure-server"
 
 normal['java']['jdk_version'] = "7"
@@ -25,12 +28,8 @@ default['textsecure']['config']['s3']['attachmentsBucket'] = nil
 default['textsecure']['config']['cache']['url'] = "http://localhost:6397"
 default['textsecure']['config']['directory']['url'] = "http://localhost:6397"
 default['textsecure']['config']['federation']['name'] = nil
-default['textsecure']['config']['federation']['peers'] = [{
-  name: nil,
-  url: nil,
-  authenticationToken: nil,
-  certificate: nil,
-}]
+# Format: [{name: <string>, url: <string>, authenticationToken: <string>, certificate: <string>}, [...] ]
+default['textsecure']['config']['federation']['peers'] = []
 default['textsecure']['config']['graphite']['host'] = nil
 default['textsecure']['config']['graphite']['port'] = nil
 

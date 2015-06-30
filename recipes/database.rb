@@ -8,6 +8,8 @@
 #
 
 include_recipe "postgresql::server"
+
+include_recipe "build-essential"
 include_recipe "database::postgresql"
 
 user node['textsecure']['dbuser'] do

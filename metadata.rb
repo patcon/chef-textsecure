@@ -6,9 +6,10 @@ description      'Installs/Configures TextSecure server'
 long_description 'Installs/Configures TextSecure server'
 version          '0.1.0'
 
-supports "ubuntu"
+supports 'ubuntu'
 
-depends "database"
+depends 'build-essential'
+depends 'database'
 depends 'git'
 depends 'java'
 depends 'maven'

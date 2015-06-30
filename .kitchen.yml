@@ -1,15 +1,79 @@
 ---
 driver:
-  name: vagrant
+  name: docker
+  # See: https://github.com/hw-cookbooks/postgresql/issues/212
+  require_chef_omnibus: 11.16.4
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+- name: ubuntu-14.04
+  run_list:
+  - recipe[build-essential]
+  - recipe[test-helper::default]
+  - recipe[apt]
+  - recipe[redisio::default]
+  - recipe[redisio::enable]
+  - recipe[textsecure::database]
+  - recipe[textsecure::textsecure]
+
+
+default_attributes: &DEFAULT_ATTRIBUTES
+  build-essential:
+    compile_time: true
+  postgresql:
+    config:
+      ssl: false # Docker-specific fix
+    password:
+      postgres: whisper
+  textsecure:
+    user: kitchen
+    git_dir: /home/kitchen/textsecure-server
+    config:
+      twilio:
+        accountId: X
+        accountToken: X
+        localDomain: X
+        number: X
+      s3:
+        accessKey: X
+        accessSecret: X
+        attachmentsBucket: X
+      push:
+        username: whisper
+        password: whisper
+      cache:
+        url: http://localhost:6380
+      directory:
+        url: http://localhost:6380
+  pushserver:
+    disable_apn: true
+    git_dir: /home/kitchen/push-server
+    config:
+      apn:
+        pushCertificate: X
+        pushKey: X
+        voipCertificate: X
+        voipKey: X
+      gcm:
+        senderId: 670330094152
+        apiKey: X
+      authentication:
+        servers:
+        - name: whisper
+          password: whisper
+      redis:
+        url: http://localhost:6379
+  redisio:
+    servers:
+    - name: pushserver
+      port: 6379
+    - name: textsecure
+      port: 6380
 
 suites:
   - name: default
-    run_list:
-    attributes:
+    # YAML allows us to merge in customizations
+    # See: http://stackoverflow.com/questions/9254178/is-there-yaml-syntax-for-sharing-part-of-a-list-or-map
+    attributes: *DEFAULT_ATTRIBUTES
