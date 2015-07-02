@@ -12,12 +12,6 @@ include_recipe "postgresql::server"
 include_recipe "build-essential"
 include_recipe "database::postgresql"
 
-user node['textsecure']['dbuser'] do
-  supports :manage_home => true
-  home "/home/#{node['textsecure']['dbuser']}"
-  shell "/bin/bash"
-end
-
 db_info = {
   host: "localhost",
   username: 'postgres',
