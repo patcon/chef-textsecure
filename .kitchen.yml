@@ -30,24 +30,6 @@ default_attributes: &DEFAULT_ATTRIBUTES
       ssl: false # Docker-specific fix
     password:
       postgres: whisper
-  textsecure:
-    config:
-      twilio:
-        accountId: X
-        accountToken: X
-        localDomain: X
-        number: X
-      s3:
-        accessKey: X
-        accessSecret: X
-        attachmentsBucket: X
-      push:
-        username: whisper
-        password: whisper
-      cache:
-        url: http://localhost:6380
-      directory:
-        url: http://localhost:6380
   pushserver:
     disable_apn: true
     git_dir: /home/kitchen/push-server
@@ -66,6 +48,11 @@ default_attributes: &DEFAULT_ATTRIBUTES
           password: whisper
       redis:
         url: http://localhost:6379
+  textsecure:
+      cache:
+        url: http://localhost:6380
+      directory:
+        url: http://localhost:6380
   redisio:
     servers:
     - name: pushserver
