@@ -1,16 +1,15 @@
 # encoding: utf-8
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-
 group :test do
-  gem 'rake'
   gem 'foodcritic'
+  gem 'rake'
   gem 'rubocop'
 end
 
 group :integration do
   gem 'busser-serverspec'
-  gem 'test-kitchen'
   gem 'kitchen-docker'
+  gem 'kitchen-vagrant'
+  gem 'test-kitchen'
 end

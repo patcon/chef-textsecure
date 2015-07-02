@@ -10,6 +10,7 @@ supports 'ubuntu'
 
 depends 'build-essential'
 depends 'database'
+depends 'dropwizard'
 depends 'git'
 depends 'java'
 depends 'maven'

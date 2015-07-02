@@ -46,3 +46,21 @@ databases.each do |dbname|
     action :grant
   end
 end
+
+databases.each do |db|
+  cmd_prefix = "java -jar TextSecureServer.jar"
+  execute "migrating-#{db}" do
+    command "#{cmd_prefix} #{db} migrate local.yml"
+    user node['textsecure']['user']
+    group node['textsecure']['user']
+    cwd node['textsecure']['install_dir']
+  end
+
+  check_db_cmd = "#{cmd_prefix} #{db} status local.yml | grep 'is up to date'"
+
+  log "checking-migrations-#{db}" do
+    message "There were problems migrating #{db} database!"
+    level :fatal
+    not_if check_db_cmd, cwd: node['textsecure']['install_dir']
+  end
+end

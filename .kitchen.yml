@@ -1,23 +1,26 @@
 ---
 driver:
-  name: docker
+  name: vagrant
   # See: https://github.com/hw-cookbooks/postgresql/issues/212
   require_chef_omnibus: 11.16.4
+  customize:
+    memory: 1024
+  vagrantfiles:
+    - Vagrantfile.caching.rb
 
 provisioner:
-  name: chef_zero
+  name: chef_solo
 
 platforms:
 - name: ubuntu-14.04
+  driver_config:
+    box: ubuntu/trusty64
   run_list:
-  - recipe[build-essential]
   - recipe[test-helper::default]
   - recipe[apt]
   - recipe[redisio::default]
   - recipe[redisio::enable]
-  - recipe[textsecure::database]
-  - recipe[textsecure::textsecure]
-
+  - recipe[textsecure::default]
 
 default_attributes: &DEFAULT_ATTRIBUTES
   build-essential:
@@ -28,8 +31,6 @@ default_attributes: &DEFAULT_ATTRIBUTES
     password:
       postgres: whisper
   textsecure:
-    user: kitchen
-    git_dir: /home/kitchen/textsecure-server
     config:
       twilio:
         accountId: X

@@ -1,3 +1,4 @@
-include_recipe 'textsecure::database'
-include_recipe 'textsecure::pushserver'
-include_recipe 'textsecure::textsecure'
+include_recipe "textsecure::textsecure_install_#{node['textsecure']['install_method']}"
+include_recipe 'textsecure::textsecure_configuration'
+include_recipe 'textsecure::textsecure_database'
+include_recipe 'textsecure::textsecure_service'
