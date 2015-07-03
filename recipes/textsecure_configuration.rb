@@ -1,6 +1,6 @@
 config = node['textsecure']['config'].to_hash
 
-file "#{node['textsecure']['install_dir']}/local.yml" do
+file "#{node['textsecure']['install_dir']}/config.yml" do
   content config.to_yaml
   owner node['textsecure']['user']
   group node['textsecure']['user']
