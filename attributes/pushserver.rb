@@ -4,7 +4,7 @@ default['pushserver']['install_method'] = 'jar'
 
 default['pushserver']['git_repository'] = "https://github.com/WhisperSystems/PushServer.git"
 default['pushserver']['git_revision'] = "master"
-default['pushserver']['git_dir'] = "/var/opt/pushserver"
+default['pushserver']['git_dir'] = "/home/textsecure/pushserver"
 
 default['pushserver']['disable_apn'] = false
 default['pushserver']['disable_gcm'] = false
