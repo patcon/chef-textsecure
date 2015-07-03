@@ -62,3 +62,7 @@ execute "mvn package -DskipTests=true" do
   group node['textsecure']['user']
   cwd node['pushserver']['git_dir']
 end
+
+link "#{node['pushserver']['install_dir']}/Push-Server.jar" do
+  to "#{node['pushserver']['git_dir']}/target/Push-Server-#{node['pushserver']['version']}-capsule-fat.jar"
+end
