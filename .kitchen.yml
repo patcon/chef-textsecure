@@ -28,8 +28,9 @@ default_attributes: &DEFAULT_ATTRIBUTES
       ssl: false # Docker-specific fix
     password:
       postgres: whisper
-  pushserver:
+  pushserver: &PUSHSERVER_ATTRIBUTES
     disable_apn: true
+    disable_gcm: true
     config:
       redis:
         url: http://localhost:6379
@@ -59,4 +60,13 @@ suites:
       <<: *DEFAULT_ATTRIBUTES
       textsecure:
         <<: *TEXTSECURE_ATTRIBUTES
+        install_method: source
+
+  - name: pushserver-source
+    # YAML allows us to merge in customizations
+    # See: http://stackoverflow.com/questions/9254178/is-there-yaml-syntax-for-sharing-part-of-a-list-or-map
+    attributes:
+      <<: *DEFAULT_ATTRIBUTES
+      pushserver:
+        <<: *PUSHSERVER_ATTRIBUTES
         install_method: source
