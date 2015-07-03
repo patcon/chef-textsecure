@@ -33,7 +33,7 @@ default_attributes: &DEFAULT_ATTRIBUTES
     config:
       redis:
         url: http://localhost:6379
-  textsecure:
+  textsecure: &TEXTSECURE_ATTRIBUTES
     config:
       cache:
         url: http://localhost:6380
@@ -58,4 +58,5 @@ suites:
     attributes:
       <<: *DEFAULT_ATTRIBUTES
       textsecure:
+        <<: *TEXTSECURE_ATTRIBUTES
         install_method: source
