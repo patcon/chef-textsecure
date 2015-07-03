@@ -56,7 +56,7 @@ end
 
 include_recipe "maven"
 
-execute "mvn package" do
+execute "mvn package -DskipTests=true" do
   environment ({ 'HOME' => "/home/#{node['textsecure']['user']}" })
   user node['textsecure']['user']
   group node['textsecure']['user']
