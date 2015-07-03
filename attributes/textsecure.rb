@@ -6,7 +6,7 @@ default['textsecure']['install_method'] = 'jar'
 default['textsecure']['install_dir'] = '/opt/whispersystems/textsecure'
 
 default['textsecure']['git_repository'] = "https://github.com/WhisperSystems/TextSecure-Server.git"
-default['textsecure']['git_revision'] = nil
+default['textsecure']['git_revision'] = 'master'
 default['textsecure']['git_dir'] = "/home/textsecure/textsecure-server"
 
 normal['java']['jdk_version'] = "7"

@@ -14,7 +14,7 @@ include_recipe 'git'
 git "textsecure-server" do
   destination node['textsecure']['git_dir']
   repository node['textsecure']['git_repository']
-  revision node['textsecure']['git_revision'] || "v#{node['textsecure']['version']}"
+  revision node['textsecure']['git_revision']
   user node['textsecure']['user']
   group node['textsecure']['user']
   action :sync
@@ -27,4 +27,8 @@ execute "mvn package -DskipTests=true" do
   user node['textsecure']['user']
   group node['textsecure']['user']
   cwd node['textsecure']['git_dir']
+end
+
+link "#{node['textsecure']['install_dir']}/TextSecureServer.jar" do
+  to "#{node['textsecure']['git_dir']}/target/TextSecureServer-#{node['textsecure']['version']}.jar"
 end

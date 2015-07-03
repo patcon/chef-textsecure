@@ -51,3 +51,11 @@ suites:
     # YAML allows us to merge in customizations
     # See: http://stackoverflow.com/questions/9254178/is-there-yaml-syntax-for-sharing-part-of-a-list-or-map
     attributes: *DEFAULT_ATTRIBUTES
+
+  - name: textsecure-source
+    # YAML allows us to merge in customizations
+    # See: http://stackoverflow.com/questions/9254178/is-there-yaml-syntax-for-sharing-part-of-a-list-or-map
+    attributes:
+      <<: *DEFAULT_ATTRIBUTES
+      textsecure:
+        install_method: source
