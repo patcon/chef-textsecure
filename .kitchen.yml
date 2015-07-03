@@ -18,8 +18,6 @@ platforms:
   run_list:
   - recipe[test-helper::default]
   - recipe[apt]
-  - recipe[redisio::default]
-  - recipe[redisio::enable]
   - recipe[textsecure::default]
 
 default_attributes: &DEFAULT_ATTRIBUTES
@@ -32,23 +30,11 @@ default_attributes: &DEFAULT_ATTRIBUTES
       postgres: whisper
   pushserver:
     disable_apn: true
-    git_dir: /home/kitchen/push-server
     config:
-      apn:
-        pushCertificate: X
-        pushKey: X
-        voipCertificate: X
-        voipKey: X
-      gcm:
-        senderId: 670330094152
-        apiKey: X
-      authentication:
-        servers:
-        - name: whisper
-          password: whisper
       redis:
         url: http://localhost:6379
   textsecure:
+    config:
       cache:
         url: http://localhost:6380
       directory:

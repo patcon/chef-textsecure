@@ -1,5 +1,6 @@
 default['pushserver']['install_dir'] = '/opt/whispersystems/pushserver'
 default['pushserver']['version'] = '0.9.8'
+default['pushserver']['install_method'] = 'jar'
 
 default['pushserver']['git_repository'] = "https://github.com/WhisperSystems/PushServer.git"
 default['pushserver']['git_revision'] = "master"
