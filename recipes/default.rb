@@ -6,6 +6,7 @@ include_recipe "textsecure::pushserver_install_#{node['pushserver']['install_met
 include_recipe 'textsecure::pushserver_configuration'
 include_recipe 'textsecure::pushserver_service'
 
+include_recipe 'textsecure::textsecure_setup'
 include_recipe "textsecure::textsecure_install_#{node['textsecure']['install_method']}"
 include_recipe 'textsecure::textsecure_configuration'
 include_recipe 'textsecure::textsecure_database'
