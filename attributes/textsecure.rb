@@ -1,15 +1,21 @@
 default['textsecure']['user'] = 'textsecure'
-default['textsecure']['version'] = '0.54'
+
 # Options: 'jar' or 'source'
 default['textsecure']['install_method'] = 'jar'
 
-default['textsecure']['install_dir'] = '/opt/whispersystems/textsecure'
+# install_method: jar
+default['textsecure']['jar_download_url'] = 'https://circle-artifacts.com/gh/patcon/TextSecure-Server/7/artifacts/0/tmp/circle-artifacts.PWXvTUI/TextSecureServer-0.54.jar'
 
+# install_method: source
+default['textsecure']['version'] = '0.54'
 default['textsecure']['git_repository'] = "https://github.com/WhisperSystems/TextSecure-Server.git"
 default['textsecure']['git_revision'] = 'master'
 default['textsecure']['git_dir'] = "/home/textsecure/textsecure-server"
 
+# common
 normal['java']['jdk_version'] = "7"
+
+default['textsecure']['install_dir'] = '/opt/whispersystems/textsecure'
 
 default['textsecure']['dbuser'] = node['textsecure']['user']
 default['textsecure']['dbpass'] = node['postgresql']['password']['postgres']
