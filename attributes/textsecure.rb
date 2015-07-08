@@ -4,6 +4,7 @@ default['textsecure']['user'] = 'textsecure'
 default['textsecure']['install_method'] = 'jar'
 
 # install_method: jar
+# See: https://circleci.com/gh/patcon/TextSecure-Server
 default['textsecure']['jar_download_url'] = 'https://circle-artifacts.com/gh/patcon/TextSecure-Server/7/artifacts/0/tmp/circle-artifacts.PWXvTUI/TextSecureServer-0.54.jar'
 
 # install_method: source
