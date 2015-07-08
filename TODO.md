@@ -1,2 +1,1 @@
-* Set up textsecure service
-* Set up redis
+* Create vagrant dev environment using ngrok cookbook
