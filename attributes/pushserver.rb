@@ -2,7 +2,7 @@ default['pushserver']['install_method'] = 'jar'
 
 # install_method: jar
 # See: https://circleci.com/gh/patcon/PushServer
-default['pushserver']['jar_download_url'] = 'https://circle-artifacts.com/gh/patcon/PushServer/3/artifacts/0/tmp/circle-artifacts.ZXImEEt/Push-Server-0.9.8-capsule-fat.jar'
+default['pushserver']['jar_download_url'] = 'https://circle-artifacts.com/gh/patcon/PushServer/4/artifacts/0/tmp/circle-artifacts.5mib6hi/Push-Server-0.9.8-capsule-fat.jar'
 
 # install_method: source
 default['pushserver']['version'] = '0.9.8'
