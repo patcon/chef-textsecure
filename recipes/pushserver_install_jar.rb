@@ -1,24 +1,12 @@
-user node['textsecure']['user'] do
-  supports :manage_home => true
-  home "/home/#{node['textsecure']['user']}"
-  shell "/bin/bash"
-end
+filename = File.basename(node['pushserver']['jar_download_url'])
+cached_download_path = File.join(Chef::Config['file_cache_path'], filename)
 
-directory node['pushserver']['install_dir'] do
-  owner node['textsecure']['user']
-  group node['textsecure']['user']
-  recursive true
-end
-
-version = node['pushserver']['version']
-cached_download = "#{Chef::Config['file_cache_path']}/Push-Server-#{version}-capsule-fat.jar"
-
-remote_file cached_download do
-  source "https://bintray.com/artifact/download/patcon/generic/Push-Server-#{version}-capsule-fat.jar"
+remote_file cached_download_path do
+  source node['pushserver']['jar_download_url']
 end
 
 remote_file "#{node['pushserver']['install_dir']}/Push-Server.jar" do
-  source "file://#{cached_download}"
+  source "file://#{cached_download_path}"
   owner node['textsecure']['user']
   group node['textsecure']['user']
   mode "0664"
